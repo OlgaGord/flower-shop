@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<!-- 
+Nom : Gordeyeva Olga 
+Projet : Cours Création de sites Web –TP#2
+Organisation : Collège de Maisonneuve 
+Page : order.html 
+Date création : 2018-05-08
+Description : La page d'achat en ligne du magazine de fleur. 
+-->
+<html lang="fr">
+<!-- Header section -->
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="discription" content="Fleur en ligne" />
+    <meta name="Keywords" content="Achat, fleur, livraison" />
+    <!-- Mobile viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Order form en ligne</title>
+    <link rel="stylesheet" href="stylesheets/screen.css">
+    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript"></script>
+    <!-- fin de header section -->
+</head>
+
+<body id="home">
+    <div class="wrapper">
+        <!-- ENTETE -->
+        <header>
+            <div class="conteneur">
+                <!-- <div class="recherche"> -->
+                <form class="search_forme">
+                    <input type="search" class="search_input" name="recherche" placeholder="Rechercher"> &#128269; &nbsp;
+                </form>
+                <div class="logo">
+                    <a href="index.html">
+                        <img class="img_logo" src="images/basic-logo.png" alt="logo">
+                    </a>
+                </div>
+                <div class="traduction">
+                    <a href="#">Fr
+                        <img src="images/quebec.png">
+                    </a>
+                    <a href="#">En
+                        <img src="images/flag.png">
+                    </a>
+                </div>
+                <!--Menu principal-->
+                <!-- navigation -->
+                <nav id="topnav" role="navigation">
+                    <div class="menu-toggle">Menu</div>
+                    <ul class="srt-menu" id="menu-principale-navigation">
+                        <li>
+                            <a href="index.html">Accueil</a>
+                        </li>
+                        <li>
+                            <a href="page2.html">Produit</a>
+                        </li>
+                        <li class="current">
+                            <a href="#">Achats</a>
+                        </li>
+                        <li>
+                            <a href="#">Abonnement</a>
+                        </li>
+                        <li>
+                            <a href="#">Contacts</a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- fin  navigation -->
+            </div>
+            <!--fin conteneur -->
+        </header>
+        <!-- fin entête -->
+        <script>
+            function calcPrice() {
+
+                var product = document.form1.product_list;
+                //
+                //
+                var pIndex = product.selectedIndex;
+                var pPrice = product.options[pIndex].value;
+
+                // determ curr selected quantity option
+                var quantity = document.form1.qty;
+                var qIndex = quantity.selectedIndex;
+                var qOrdered = quantity.options[qIndex].value;
+
+                // calculate the subtotal
+                // alert("I'm here");
+                var subtotal = pPrice * qOrdered;
+                //	display the subtotal in the price field
+                document.form1.txtPrice.value = (subtotal).toFixed(2);
+
+                //call the calcTotal() function
+                calcTotal();
+
+            }
+            // create the calcShipping function
+            function calcShipping(shipOption) {
+                document.form1.txtShip.value = shipOption.value;
+
+                calcTotal();
+            }
+
+            //create calcTotal()
+
+            function calcTotal() {
+                var priceVal = parseFloat(document.form1.txtPrice.value);
+                var shipVal = parseFloat(document.form1.txtShip.value);
+                var TAX_RATE = 0.05;
+                var taxVal = TAX_RATE * (priceVal + shipVal);
+
+                //display and calculate values
+                document.form1.txtSubtotal.value = (priceVal + shipVal).toFixed(2);
+                document.form1.txtTax.value = taxVal;
+                document.form1.txtTotal.value = (priceVal + shipVal + taxVal);
+
+            }//end calcTotal()
+
+        </script>
+        
+            <div class="conteneur_achat">
+                <!-- <div class="mainWithFooter"> -->
+                <div class="orderbox">
+                    <fieldset>
+                        <legend>Choisissez les produits s'il vous plaît:</legend>
+                    </fieldset>
+                    <div class="table">
+                            
+                        <form name="form1" method="post">
+                                
+                            <table id="table">
+                                <tr>
+                                    <td class="labelcell">Product</td>
+                                    <td class="inputcell">
+                                        <select name="product_list" id="product_list" onChange="calcPrice();">
+                                            <option value="0">Nos fleurs disponibles:</option>
+                                            <option value="20">Bouquet1</option>
+                                            <option value="19">Bouquet2</option>
+                                            <option value="23">Bouquet3</option>
+                                            <option value="16">Bouquet4</option>
+                                            <option value="19">Bouquet5</option>
+                                            <option value="20">Bouquet6</option>
+                                        </select>
+
+                                        <select name="qty" id="qty" onChange="calcPrice();">
+                                            <option value="0">Quantity</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                    </td>
+
+                                    <td class="outcell">
+                                        <input class="num" name="txtPrice" id="txtPrice" size="7" value="0.00" readonly />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="labelcell">Shipping</td>
+                                    <td>
+                                        <p>
+                                            <input type="radio" name="shipType" id="ship1" value="4.95" onClick="calcShipping(this);" />
+                                            <label for="ship1">Standard (4-6 jours): $4.95</label>
+                                        </p>
+                                        <p>
+                                            <input type="radio" name="shipType" id="ship2" value="8.95" onClick="calcShipping(this);" />
+                                            <label for="ship2">Express (2 jours): $8.95</label>
+                                        </p>
+                                        <p>
+                                            <input type="radio" name="shipType" id="ship3" value="12.95" onClick="calcShipping(this);" />
+                                            <label for="ship3">Next Day (1 jour): $12.95</label>
+                                        </p>
+                                    </td>
+                                    <td class="outcell">
+                                        <input class="num" name="txtShip" id="txtShip" size="7" value="0.00" readonly />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="2" class="labelcell2">Subtotal</td>
+                                    <td class="outcell">
+                                        <input class="num" name="txtSubtotal" size="7" value="0.00" readonly id="txtSubtotal" />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="2" class="labelcell2">Tax (5%)</td>
+                                    <td class="outcell">
+                                        <input class="num" name="txtTax" id="txtTax" size="7" value="0.00" readonly />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="2" class="labelcell2">TOTAL</td>
+                                    <td class="outcell">
+                                        <input class="num" name="txtTotal" id="txtTotal" size="7" value="0.00" readonly />
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <div id="formbuttonsbox">
+                                <div id="formbuttons">
+                                    <input type="submit" name="nextb" id="nextb" value="Next" />
+                                    <input type="reset" name="cancelb" id="cancelb" value="Cancel" />
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                    <!--.table class-->
+                </div>
+                <!--order_box-->
+            </div>
+        <!--wrapper-->
+
+        <footer>
+
+            <a class="home" href="#home">Menu principal</a>
+            <br>
+            <div class="sign_div">
+                <h5>Sources:</h5>
+                <a class="sources" href="http://www.recettes.qc.ca/dossiers/cuisine-du-monde/dossier/grece-3">Cusine greque du Québec</a>
+                <br>
+                <a class="sources" href="http://allrecipes.fr/recettes/tag-4033/recette-grecque-facile.aspx">Recettes grecques faciles </a>
+                <br>
+                <a class="sources" href="https://www.atelierdeschefs.fr/blog/la-cuisine-cest-une-histoire-de-famille-temoignage-de-perrine-dubail-chef-a-latelier-des-chefs">
+                    Les images des membres d'équipe</a>
+                <br>
+                <a class="sources" href="https://news.peninsula.com/en/new-york/news/story/10155-the-peninsula-new-york-announces-new-appointments-in-the-kitchen/">
+                    Les images des membres d'équipe</a>
+                <br>
+                <a class="sources" href="http://www.cuisinezenville.com/veste-de-cuisine-differents-styles-pour-toutes-les-personnalites.html">
+                    Les images des membres d'équipe</a>
+                <br>
+                <a class="sources" href="http://www.getnowapp.com/how-to-get-the-most-of-spices-and-herbs-when-cooking/">
+                    L'image de la page d'acceuil</a>
+                <br>
+                <a class="sources" href="https://www.google.ca/search?q=%D0%B1%D0%BB%D1%8E%D0%B4%D0%B0&source=lnms&tbm=isch&sa=X&ved=0ahUKEwig_eb-iK7aAhWFdN8KHYX4BU8Q_AUICigB&biw=1536&bih=720#imgrc=Mpt5PzBHXmckhM:">L'image de les pages de recettes et carte</a>
+                <br>
+                <a class="sources" href="https://www.google.ca/search?q=%D0%B1%D0%BB%D1%8E%D0%B4%D0%B0&source=lnms&tbm=isch&sa=X&ved=0ahUKEwig_eb-iK7aAhWFdN8KHYX4BU8Q_AUICigB&biw=1536&bih=720#imgdii=YreiDj3WsYBN7M:&imgrc=OeBcdgKGpYDDkM:">L'image de la page de contacts</a>
+                <br>
+                <br>
+            </div>
+            <a href="http://www.facebook.com">
+                <img class="sign_images" src="images/social-networks2.png" alt="image réseaux sociaux" title="réseaux sociaux">
+            </a>
+            <div class="footer_div">
+                <span class="footer_span"> Web par Olga Gordeyeva&nbsp; &copy; Copyrights &nbsp; 2018</span>
+                <br>
+            </div>
+
+
+        </footer>
+
+</body>
+
+</html>

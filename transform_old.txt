@@ -1,0 +1,29 @@
+
+
+  // @keyframes text_cube_anim {
+
+  //   0% {
+  //       // content: url('../../images/fleur_principal1_1.png');
+  //       content:"B";
+  //       color:black;
+  //     }
+    
+  //   50% {
+    
+  //     content:"Bienvenu! Achetez en ligne!";
+  //     color: red;
+    
+  //   }
+    
+  //   100% {
+    
+  //     // content: url('../../images/social-networks2.png');
+  //   content:"A";
+  //   color: blue;
+  //   }
+    
+  //   }
+  //  &:after {
+  // animation: text_cube_anim 3s linear infinite alternate;
+  //  }
+  // }  

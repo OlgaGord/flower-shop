@@ -1,0 +1,508 @@
+body {
+     .wrapper {
+/*
+PETITS ÉCRANS
+*/
+@media only screen and (min-width: 768px) {
+
+    .menu-toggle{/*l'icône du menu flotte à droite plutôt que de rester sous le logo */
+        margin-top:10px; /*  selon la taille du logo*/
+        float:right;
+    }
+    
+    .text_cube {
+      display: none;
+    }
+
+    .logo {
+      display: block;
+      padding: 1em;
+      width:7em;
+      margin-top:0;
+      justify-content: flex-end;
+    }
+    
+    .search_forme {
+       padding: 1em;
+       display: flex;
+       justify-content: flex-start;
+       width: 10em;
+       margin: 0;
+    }
+    .traduction {
+      width: 20%;
+      height:20%;
+      padding: 1em;
+      display: flex;
+      order: 0;
+      
+      }
+
+    .conteneur_text {
+    #main {
+      margin-left: 2em;
+      margin-right: 2em;
+      text-align: center;
+        display: flex;
+        flex-direction: column;
+        nav, aside {
+          flex: 0 0 20vw;   /* flex-grow - flex shrink - flex-basis    */
+        }  
+
+        article.presentation {
+          // .tourner{
+          display:table;
+          margin:50px auto;
+          position: relative;
+          height: 250px;
+          width: 250px;
+          text-align: center;
+            
+          
+          /* Faire une pile de toutes les cartes  */
+          .carte {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform-origin:left bottom;
+            padding: 1em;
+            text-align: center;
+            // border: 1px solid $third-color;
+            span.acheter {
+              color:$third-color;
+              margin: 0 auto;
+              text-align: center;
+              width: 250px;
+              height: 50px;
+            }
+          }
+      // }   //.tourne
+    }  //article.presentation
+
+    article.conteneur_produit { 
+      display: flex;
+      flex-direction:   column;
+      width: 100%;
+        height: auto;
+        position: relative;
+        margin: 40px auto;
+        .image_produit{
+            display: flex;
+            flex-direction: column;
+            a {
+              text-decoration: none;
+              font-size: 100%;
+              &:hover {
+                color: $firth-color;
+                font-size: 110%;
+            }
+          }
+      /* images   */
+      #image {
+        width: 250px;
+        height: 250px;
+        margin: 50px auto;
+        flex-direction: row;
+        transform-style: preserve-3d;   /*  La transformation se propage */
+        transition: transform 1s;
+        font-size: 100%;
+        &:hover {
+          transform:rotateY( 180deg ) scale(1.25,1.25);
+          font-size: 110%;
+
+
+        }
+        figure {
+          display: block;
+          position: absolute;  /* pour superposer les cartes */
+          width: 100%;
+          height: 100%;
+        }
+        .arriere {
+/* transform-style: preserve-3d; */
+transform-origin: center center;
+transform: rotateY( 180deg );
+}
+
+        }
+        .panier {
+          margin:70px auto;
+          width:100px;
+          height: 100px;
+          display: flex;
+          flex-direction: column;
+          
+          img {
+            margin: 0 auto;
+            flex-direction: column;
+            order: 1;
+          }
+          a {
+            text-decoration: none;
+            margin: 0 auto;
+            flex-direction: column;
+            order: 3;
+            font-size: 100%;
+            &:hover {
+              color: $firth-color;
+              font-size: 110%;
+           }
+         }
+        } //panier
+      }
+      } //article.conteneur_produit
+
+  } //#main
+} //.conteneur_text
+} //media 768px
+/*
+TABLETTES ET PETITS  LAPTOPS
+*/
+@media only screen and (min-width: 1366px) {
+   header {
+    .conteneur{
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      .logo{
+      display: block;
+      order:3;
+      // annimation de logo pour la version plus que 1366px
+      // Avec un souris(hover pseudo class) un image logo tourne à 360
+      img.img_logo:hover {
+
+        animation: 1s linear none infinite run;
+
+      }
+
+      @keyframes run{
+        0% {
+          transform: rotate(0deg) translate(0px);
+        }
+        100% {
+          transform: rotate(360deg) translate(0px);
+        }
+      }
+      }
+      
+      .search_forme {
+        width:15em;
+        height: 5em;
+        order: 1;
+      }
+
+  /*** MENU PRINCIPAL ***/
+  .menu-toggle{display:none;}
+  #menu-principale-navigation{
+      order: 2;
+  }
+  .srt-menu, .srt-menu * {
+      display: flex;
+      margin:			0;
+      padding:		0;
+      list-style:		none;
+      margin: .35em 0 0 0;
+      
+      li {
+          display:flex;
+          margin-left:1px;
+  
+          &:hover a,
+          &.current a{ 
+              color:$seconady-color;
+              background:$forth-color;
+              opacity: 0.6;
+          }
+            a {
+              background:$third-color;
+              margin:0; 
+              padding:10px 20px;
+              height:45px;
+          }
+          li {
+  
+           a {
+              display: flex;
+              border-top:		1px solid rgba(255,255,255,.2);
+              background:		$forth-color; /* au cas où le navigateur ne reconnait pas rgba  */
+              background:rgba(0,0,0,.6);
+              color:	$third-color;
+              // padding-left:20px;
+              height:auto;
+              }
+            }
+      }
+    }  // .srt-menu
+      a {
+          display:		block;
+          position:		relative;
+          text-decoration:none;
+          color:			$forth-color;	
+          &:visited  { 
+              color:			$forth-color;	
+          }
+          
+      }
+  /*** NAVIGATION ***/
+  #topnav {
+      display: flex;
+      order: 2;
+      margin: .35em 0 0 0;
+  }
+    } //fin conteneur
+   } //header
+//cube pour desktop version
+.conteneur_cube {
+  position: relative;
+  z-index: 2;
+ .text_cube{
+  display:block;
+  position: absolute;
+  margin-left: 45%;
+  margin-top: -23%;
+  // animation-name: color_text;
+  // animation-duration: 4s;
+  // color: $forth-color;
+  font-size: 200%;
+  z-index: 3;
+  .text_paragraphe {
+    font-family:'Sofia';
+    display: block;
+  
+    &:hover {
+      animation: 6s linear none infinite color_text;
+          
+    }
+  }
+
+  }
+ 
+  @keyframes color_text {
+    
+        0% {color:$forth-color;
+            font-size: 200%;
+            background-color: $seconady-color;
+        }
+    
+        100% {
+          color: $menu-background;
+          font-size: 100%;
+          
+        }
+      }
+  
+}   //fin conteneur_cube 
+
+.wrap {
+
+    perspective: 1000px;
+    perspective-origin: 50% 50%;
+    padding: 50px; 
+    height:400px;
+    width: 300px;
+    margin: 0;
+    z-index: 1;
+
+  .cube {
+    @include cube(auto, relative, 280px, 280px, preserve-3d);
+    animation: rotate 20s infinite linear;
+    display:block;
+    div {
+      
+          @include cubeDiv(absolute, border-box, 10px, 100%, 100%, 0.9);
+          transition: transform 0.2s ease-in;
+          display:block;
+   }
+  }
+    .front {
+    transform: translateZ(200px);
+  }
+  
+  .back {
+    transform: translateZ(-100px) rotateY(180deg);
+  }
+  
+  .right {
+    transform: rotateY(-270deg) translateX(100px);
+    transform-origin: top right;
+  }
+  
+  .left {
+    transform: rotateY(270deg) translateX(-100px);
+    transform-origin: center left;
+  }
+  
+  .top {
+    transform: rotateX(-270deg) translateY(-100px);
+    transform-origin: top center;
+  }
+  
+  .bottom {
+    transform: rotateX(270deg) translateY(100px);
+    transform-origin: bottom center;
+  }
+
+}
+  @keyframes rotate {
+    from {
+      transform: rotateX(0deg) rotateY(0deg);
+    }
+    
+    to {
+      transform: rotateX(360deg) rotateY(360deg);
+    }
+  }
+  .wrap:hover .front {
+    transform: translateZ(200px);
+  }
+  .wrap:hover .back {
+    transform: translateZ(-200px) rotateY(180deg);
+  }
+  .wrap:hover .right {
+    transform: rotateY(-270deg) translateZ(100px) translateX(100px);
+  }
+  .wrap:hover .left {
+    transform: rotateY(270deg) translateZ(100px) translateX(-100px);
+  }
+  .wrap:hover .top {
+    transform: rotateX(-270deg) translateZ(100px) translateY(-100px);
+  }
+  .wrap:hover .bottom {
+    transform: rotateX(270deg) translateZ(100px) translateY(100px);
+  }
+
+// }   //fin conteneur_cube
+.conteneur_text {
+  #main {
+    margin-left: 2em;
+    margin-right: 2em;
+  flex-direction: row;
+    // la zone au milieu de la page contenant la discription de produits et les image doiloyés
+  article.presentation {
+    margin-left: 2em;
+    margin-right: 2em;
+    margin-bottom: 2em;
+        .tourner{
+        display:table;
+        margin:50px auto;
+        position: relative;
+        height: 250px;
+        width: 250px;
+      
+
+        /* Tourner chacune des images de 10 deg */
+        &:hover .fleur1 {
+          transform: rotate(6deg) translatex(10em);
+
+        }
+        &:hover .fleur2 {
+          transform: rotate(3deg) translatex(5em);
+        }
+
+        &:hover .fleur3 {
+          transform: rotate(0deg) translatex(0em);
+        }
+        
+        &:hover .fleur4 {
+          transform: rotate(-3deg) translatex(-5em);
+        }
+
+        &:hover .fleur5 {
+          transform: rotate(-6deg) translatex(-10em);
+        }
+       
+        /* Faire une pile de toutes les images  */
+        .carte {
+          position: absolute;
+          top: 0;
+          left: 0;
+          transform-origin:left bottom;
+          transition-duration: 1s;
+          padding: 1em;
+          text-align: center;
+          // border: 1px solid $third-color;
+          span.acheter {
+            color:$third-color;
+            margin: 0 auto;
+            text-align: center;
+            width: 250px;
+            height: 50px;
+          }
+        }
+            }      // .tourner
+          } //article
+
+          article.conteneur_produit { 
+            display: flex;
+            flex-direction:   column;
+            width: 70%;
+              height: auto;
+              position: relative;
+              margin: 40px auto;
+          
+            
+              .image_produit{
+                  display: flex;
+                  flex-direction: row;
+                  a {
+                    text-decoration: none;
+                    font-size: 100%;
+                    &:hover {
+                      color: $firth-color;
+                      font-size: 110%;
+                  }
+                }
+            /* images   */
+            #image {
+              width: 250px;
+              height: 250px;
+              margin: 50px auto;
+              flex-direction: row;
+              transform-style: preserve-3d;   /*  La transformation se propage */
+              transition: transform 1s;
+              &:hover {
+                transform:rotateY( 180deg ) scale(1.25,1.25);
+
+
+              }
+              figure {
+                display: block;
+                position: absolute;  /* pour superposer les cartes */
+                width: 100%;
+                height: 100%;
+              }
+              .arriere {
+  /* transform-style: preserve-3d; */
+  transform-origin: center center;
+  transform: rotateY( 180deg );
+}
+
+              }
+            }
+            } //article.conteneur_produit
+
+     }
+  nav, aside {
+  flex: 0 0 20vw;   /* flex-grow - flex shrink - flex-basis    */
+  // border: 1px solid $menu-background;
+  // border-radius:15px;
+  padding-left:5px;
+  padding-right: 5px;
+  a {
+    // text-decoration: none;
+    color: $primary-color;
+    font-size: 100%;
+    &:hover {
+      color: $firth-color;
+      font-size: 110%;
+  }
+}
+  
+  }
+} //.conteneur_text
+     
+     
+} //fin media 1366px
+} // fin  .wrapper
+} //fin body
+  

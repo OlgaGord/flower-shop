@@ -1,0 +1,176 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 5, ../../../ex_sass/compass.app.windows.1.29/compass.app/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../ex_sass/compass.app.windows.1.29/compass.app/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../ex_sass/compass.app.windows.1.29/compass.app/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../ex_sass/compass.app.windows.1.29/compass.app/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../ex_sass/compass.app.windows.1.29/compass.app/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../ex_sass/compass.app.windows.1.29/compass.app/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../ex_sass/compass.app.windows.1.29/compass.app/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../ex_sass/compass.app.windows.1.29/compass.app/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../ex_sass/compass.app.windows.1.29/compass.app/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 29, ../sass/screen_last.scss */
+body {
+  margin: 0, auto;
+  height: auto;
+  background-color: lightgray;
+  position: relative;
+  width: 100%;
+}
+/* line 37, ../sass/screen_last.scss */
+body .wrapper {
+  margin: 0 auto;
+  height: auto;
+  background-color: white;
+  position: relative;
+  width: 80%;
+}
+/* line 45, ../sass/screen_last.scss */
+body .wrapper .wrap {
+  margin-top: 150px;
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+}
+/* line 51, ../sass/screen_last.scss */
+body .wrapper .wrap .cube {
+  margin: auto;
+  position: relative;
+  height: 280px;
+  width: 280px;
+  transform-style: preserve-3d;
+}
+/* line 55, ../sass/screen_last.scss */
+body .wrapper .wrap .cube > div {
+  position: absolute;
+  box-sizing: border-box;
+  padding: 10px;
+  height: 100%;
+  width: 100%;
+  opacity: 0.9;
+}
+/* line 61, ../sass/screen_last.scss */
+body .wrapper .wrap .front {
+  transform: translateZ(200px);
+}
+/* line 65, ../sass/screen_last.scss */
+body .wrapper .wrap .back {
+  transform: translateZ(-100px) rotateY(180deg);
+}
+/* line 69, ../sass/screen_last.scss */
+body .wrapper .wrap .right {
+  transform: rotateY(-270deg) translateX(100px);
+  transform-origin: top right;
+}
+/* line 74, ../sass/screen_last.scss */
+body .wrapper .wrap .left {
+  transform: rotateY(270deg) translateX(-100px);
+  transform-origin: center left;
+}
+/* line 79, ../sass/screen_last.scss */
+body .wrapper .wrap .top {
+  transform: rotateX(-270deg) translateY(-100px);
+  transform-origin: top center;
+}
+/* line 84, ../sass/screen_last.scss */
+body .wrapper .wrap .bottom {
+  transform: rotateX(270deg) translateY(100px);
+  transform-origin: bottom center;
+}
+@keyframes rotate {
+  from {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  to {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+/* line 100, ../sass/screen_last.scss */
+body .wrapper .cube {
+  animation: rotate 20s infinite linear;
+}
+/* line 104, ../sass/screen_last.scss */
+body .wrapper .wrap:hover .front {
+  transform: translateZ(200px);
+}
+/* line 107, ../sass/screen_last.scss */
+body .wrapper .wrap:hover .back {
+  transform: translateZ(-200px) rotateY(180deg);
+}
+/* line 110, ../sass/screen_last.scss */
+body .wrapper .wrap:hover .right {
+  transform: rotateY(-270deg) translateZ(100px) translateX(100px);
+}
+/* line 113, ../sass/screen_last.scss */
+body .wrapper .wrap:hover .left {
+  transform: rotateY(270deg) translateZ(100px) translateX(-100px);
+}
+/* line 116, ../sass/screen_last.scss */
+body .wrapper .wrap:hover .top {
+  transform: rotateX(-270deg) translateZ(100px) translateY(-100px);
+}
+/* line 119, ../sass/screen_last.scss */
+body .wrapper .wrap:hover .bottom {
+  transform: rotateX(270deg) translateZ(100px) translateY(100px);
+}
+/* line 123, ../sass/screen_last.scss */
+body .wrapper .cube > div {
+  transition: transform 0.2s ease-in;
+}
